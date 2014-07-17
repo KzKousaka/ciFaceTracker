@@ -4,7 +4,7 @@
 #include "cinder/Capture.h"
 
 #include "CinderOpenCV.h"
-#include "ciFaceTracker.h"
+#include "ciFaceTrackerThreaded.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -17,9 +17,9 @@ class BasicApp : public AppNative {
 	void update();
 	void draw();
     
-    ciFaceTracker   tracker;
-    CaptureRef      cam;
-    gl::Texture     tex;
+    ciFaceTrackerThreaded   tracker;
+    CaptureRef              cam;
+    gl::Texture             tex;
 };
 
 void BasicApp::setup()
