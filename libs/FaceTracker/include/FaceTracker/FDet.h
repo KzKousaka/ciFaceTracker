@@ -47,7 +47,9 @@ namespace FACETRACKER
       A wrapper for OpenCV's face detector
   */
   class FDet{
-  public:    
+  public:
+    int                      _haar_count;
+    cv::Rect                 _haar_rect;
     int                      _min_neighbours; /**< see OpenCV documentation */
     int                      _min_size;       /**< ...                      */
     double                   _img_scale;      /**< ...                      */
