@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="ciFaceTracker"
+	id=""
+	author="Patrick Hebron"
+	summary="A port of ofxFaceTracker for Cinder by Patrick Hebron."
+	license=""
+	git="https://github.com/naychrist/ciFaceTracker"
+	version=""
+	library="http://facetracker.net"
+	>
+
+	<headerPattern>src/*.h</headerPattern>
+	<sourcePattern>src/*.cpp</sourcePattern>
+		
+	<includePath system="true">libs/FaceTracker/include</includePath>
+	<headerPattern>libs/FaceTracker/include/FaceTracker/*.h</headerPattern>
+	<sourcePattern>libs/FaceTracker/src/lib/*.cc</sourcePattern>
+	
+
+</block>
+</cinder>

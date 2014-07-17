@@ -66,7 +66,7 @@ void ciFaceTracker::setup() {
     path tFtPath  = tBasePath / "face2.tracker";
     path tTriPath = tBasePath / "face.tri";
     path tConPath = tBasePath / "face.con";
-	
+	cout<<"trying: "<<tFtPath.string().c_str()<<endl;
 	tracker.Load( tFtPath.string().c_str() );
 	tri = IO::LoadTri( tTriPath.string().c_str() );
 	con = IO::LoadCon( tConPath.string().c_str() );  // not being used right now

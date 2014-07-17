@@ -39,7 +39,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef __IO_h_
 #define __IO_h_
-#include <opencv/cv.h>
+//#include <opencv/cv.h>
+#include "CinderOpenCV.h"
 #include <fstream>
 namespace FACETRACKER
 {
