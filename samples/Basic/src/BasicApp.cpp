@@ -1,4 +1,5 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
+#include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/Capture.h"
@@ -10,7 +11,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class BasicApp : public AppNative {
+class BasicApp : public App {
   public:
 	void setup();
 	void mouseDown( MouseEvent event );	
@@ -19,7 +20,7 @@ class BasicApp : public AppNative {
     
     ciFaceTrackerThreaded   tracker;
     CaptureRef              cam;
-    gl::Texture             tex;
+    gl::TextureRef          tex;
 };
 
 void BasicApp::setup()
@@ -37,11 +38,11 @@ void BasicApp::mouseDown( MouseEvent event )
 void BasicApp::update()
 {
     if (cam->checkNewFrame()) {
-        Surface surface = cam->getSurface();
+        Surface8uRef surface = cam->getSurface();
         if (surface)
         {
-            tex = gl::Texture(surface);
-            tracker.update( toOcv( surface) );
+            tex = gl::Texture::create(*surface);
+            tracker.update( toOcv(*surface) );
         }
     }
 }
@@ -55,4 +56,4 @@ void BasicApp::draw()
     tracker.draw();
 }
 
-CINDER_APP_NATIVE( BasicApp, RendererGl )
+CINDER_APP( BasicApp, RendererGl )

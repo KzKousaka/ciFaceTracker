@@ -18,7 +18,7 @@
 
 #include <sstream>
 
-#include "cinder/app/AppBasic.h"
+#include "cinder/Cinder.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Vector.h"
 #include "cinder/TriMesh.h"
@@ -46,25 +46,25 @@ public:
 	int getAge() const;
 	virtual bool getVisibility(int i) const;
 	
-	vector<Vec3f> getImagePoints() const;
-	vector<Vec3f> getObjectPoints() const;
-	vector<Vec3f> getMeanObjectPoints() const;
+	vector<vec3> getImagePoints() const;
+	vector<vec3> getObjectPoints() const;
+	vector<vec3> getMeanObjectPoints() const;
 	
-	virtual Vec3f getImagePoint(int i) const;
-	virtual Vec3f getObjectPoint(int i) const;
-	virtual Vec3f getMeanObjectPoint(int i) const;
+	virtual vec3 getImagePoint(int i) const;
+	virtual vec3 getObjectPoint(int i) const;
+	virtual vec3 getMeanObjectPoint(int i) const;
 	
 	TriMesh getImageMesh() const;
 	TriMesh getObjectMesh() const;
 	TriMesh getMeanObjectMesh() const;
-	TriMesh getMesh(vector<Vec3f> points) const;
+	TriMesh getMesh(vector<vec3> points) const;
 	
 	virtual const cv::Mat& getObjectPointsMat() const;
 	
-	virtual Vec2f getPosition() const;
+	virtual vec2 getPosition() const;
 	virtual float getScale() const;
-	virtual Vec3f getOrientation() const;
-	Matrix44f getRotationMatrix() const;
+	virtual vec3 getOrientation() const;
+	glm::mat4 getRotationMatrix() const;
 	
 	enum Direction {
 		FACING_FORWARD,
@@ -105,7 +105,7 @@ protected:
 	void updateObjectPoints();
 	void addTriangleIndices(TriMesh& mesh) const;
 	static vector<int> getFeatureIndices(Feature feature);
-	Path2d getFeature(Feature feature, vector<Vec3f> points) const;
+	Path2d getFeature(Feature feature, vector<vec3> points) const;
 	
 	bool failed;
 	int age;

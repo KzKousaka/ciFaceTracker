@@ -44,32 +44,32 @@ public:
 	const cv::Mat& getObjectPointsMat() const {
 		return objectPointsMatFront;
 	}
-	Vec3f getImagePoint(int i) const {
+	vec3 getImagePoint(int i) const {
 		if(failed) {
-			return Vec3f::zero();
+			return vec3();
 		}
 		return imagePointsFront[i];
 	}
-	Vec3f getObjectPoint(int i) const {
+	vec3 getObjectPoint(int i) const {
 		if(failed) {
-			return Vec3f::zero();
+			return vec3();
 		}
 		return objectPointsFront[i];
 	}
-	Vec3f getMeanObjectPoint(int i) const {
+	vec3 getMeanObjectPoint(int i) const {
 		if(meanObjectPointsReady) {
 			return meanObjectPointsFront[i];
 		} else {
-			return Vec3f::zero();
+			return vec3();
 		}
 	}
 	bool getVisibility(int i) const {
 		return failed;
 	}
-	Vec3f getOrientation() const {
+	vec3 getOrientation() const {
 		return orientation;
 	}
-	Vec2f getPosition() const {
+	vec2 getPosition() const {
 		return position;
 	}
 	float getScale() const {
@@ -117,14 +117,14 @@ protected:
 		
 	bool needsUpdatingBack, needsUpdatingFront;
 	cv::Mat imageMiddle, imageBack;
-	vector<Vec3f> objectPointsFront, objectPointsMiddle;
-	vector<Vec3f> imagePointsFront, imagePointsMiddle;
-	vector<Vec3f> meanObjectPointsFront, meanObjectPointsMiddle;
+	vector<vec3> objectPointsFront, objectPointsMiddle;
+	vector<vec3> imagePointsFront, imagePointsMiddle;
+	vector<vec3> meanObjectPointsFront, meanObjectPointsMiddle;
 	bool failedMiddle;
 	bool meanObjectPointsReady;
 	
-	Vec3f orientation;
+	vec3 orientation;
 	float scale;
-	Vec2f position;
+	vec2 position;
 	cv::Mat objectPointsMatBack, objectPointsMatMiddle, objectPointsMatFront; 
 };
